@@ -153,4 +153,98 @@ private static DataSource ds;
 		con.close();
 		return prodotti;
 	}
+	
+	public static Collection<ProdottoBean> searchByText(String ricerca) throws SQLException{
+		Connection con = null;
+		PreparedStatement ps = null;
+		String retrieve = "SELECT * FROM prodotto WHERE (lower(Nome) LIKE ?)";
+		con = ds.getConnection();
+		ps = con.prepareStatement(retrieve);
+		ps.setString(1, "%" + ricerca + "%");
+		ResultSet rs = ps.executeQuery();
+		
+		Collection<ProdottoBean> prodotti = new ArrayList<>();
+		while(rs.next()) {
+			ProdottoBean prod = new ProdottoBean();
+			
+			prod.setCod_prodotto(rs.getString("Cod_Prodotto"));
+			prod.setNome(rs.getString("Nome"));
+			prod.setGenere(rs.getString("Genere"));
+			prod.setPiattaforma(rs.getString("Piattaforma"));
+			prod.setDescrizione(rs.getString("Descrizione"));
+			prod.setPrezzo(rs.getDouble("Prezzo"));
+			prod.setSviluppatore(rs.getString("Sviluppatore"));
+			prod.setImgPath(rs.getString("ImgPath"));
+			prod.setQuantità(rs.getInt("Quantita"));
+			prod.setIva(rs.getInt("Iva"));
+			prod.setData_rilascio(rs.getDate("Data_Rilascio"));
+			prod.setTrailer(rs.getString("Trailer"));
+			
+			prodotti.add(prod);
+		}
+		con.close();
+		return prodotti;
+	}
+	
+	public static Collection<ProdottoBean> orderBySales() throws SQLException{
+		Connection con = null;
+		PreparedStatement ps = null;
+		String retrieve = "SELECT * FROM prodotto ORDER BY Vendite DESC";
+		con = ds.getConnection();
+		ps = con.prepareStatement(retrieve);
+		ResultSet rs = ps.executeQuery();
+		
+		Collection<ProdottoBean> prodotti = new ArrayList<>();
+		while(rs.next()) {
+			ProdottoBean prod = new ProdottoBean();
+			
+			prod.setCod_prodotto(rs.getString("Cod_Prodotto"));
+			prod.setNome(rs.getString("Nome"));
+			prod.setGenere(rs.getString("Genere"));
+			prod.setPiattaforma(rs.getString("Piattaforma"));
+			prod.setDescrizione(rs.getString("Descrizione"));
+			prod.setPrezzo(rs.getDouble("Prezzo"));
+			prod.setSviluppatore(rs.getString("Sviluppatore"));
+			prod.setImgPath(rs.getString("ImgPath"));
+			prod.setQuantità(rs.getInt("Quantita"));
+			prod.setIva(rs.getInt("Iva"));
+			prod.setData_rilascio(rs.getDate("Data_Rilascio"));
+			prod.setTrailer(rs.getString("Trailer"));
+			
+			prodotti.add(prod);
+		}
+		con.close();
+		return prodotti;
+	}
+	
+	public static Collection<ProdottoBean> orderByReleaseDate() throws SQLException{
+		Connection con = null;
+		PreparedStatement ps = null;
+		String retrieve = "SELECT * FROM prodotto ORDER BY Data_Rilascio DESC";
+		con = ds.getConnection();
+		ps = con.prepareStatement(retrieve);
+		ResultSet rs = ps.executeQuery();
+		
+		Collection<ProdottoBean> prodotti = new ArrayList<>();
+		while(rs.next()) {
+			ProdottoBean prod = new ProdottoBean();
+			
+			prod.setCod_prodotto(rs.getString("Cod_Prodotto"));
+			prod.setNome(rs.getString("Nome"));
+			prod.setGenere(rs.getString("Genere"));
+			prod.setPiattaforma(rs.getString("Piattaforma"));
+			prod.setDescrizione(rs.getString("Descrizione"));
+			prod.setPrezzo(rs.getDouble("Prezzo"));
+			prod.setSviluppatore(rs.getString("Sviluppatore"));
+			prod.setImgPath(rs.getString("ImgPath"));
+			prod.setQuantità(rs.getInt("Quantita"));
+			prod.setIva(rs.getInt("Iva"));
+			prod.setData_rilascio(rs.getDate("Data_Rilascio"));
+			prod.setTrailer(rs.getString("Trailer"));
+			
+			prodotti.add(prod);
+		}
+		con.close();
+		return prodotti;
+	}
 }

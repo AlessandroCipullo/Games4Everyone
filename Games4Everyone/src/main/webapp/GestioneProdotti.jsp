@@ -94,7 +94,7 @@
 	<%
 		}
 	%>
-	<h2>Insert</h2>
+	<h2>Inserisci prodotto</h2>
 	<form action="ControlloProdotti" method="post">
 		<input type="hidden" name="action" value="insert"> 
 		

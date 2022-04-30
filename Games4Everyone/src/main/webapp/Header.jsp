@@ -19,8 +19,8 @@
 	<section class="navbar">
       <img class="logo" src="./imgs/logo.png">
       <p class="saluto"><%=usernameUtente %></p>
-      <form action="doSearch" method="get">
-      	<input type="text" placeholder="Cerca un prodotto..." name="search-bar" class="searchtxt">
+      <form action="RicercaProdotti" method="get">
+      	<input type="text" placeholder="Cerca un prodotto..." name="cerca" class="searchtxt">
       </form>
       <div class="icons">
         <a href="Login-Form.jsp" class="login">Accedi</a>

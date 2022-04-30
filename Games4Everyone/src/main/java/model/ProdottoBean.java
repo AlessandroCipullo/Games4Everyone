@@ -15,7 +15,14 @@ public class ProdottoBean {
 	Double prezzo;
 	Integer iva;
 	Date data_rilascio;
+	public Integer getVendite() {
+		return vendite;
+	}
+	public void setVendite(Integer vendite) {
+		this.vendite = vendite;
+	}
 	Integer quantità;
+	Integer vendite;
 	public String getSviluppatore() {
 		return sviluppatore;
 	}

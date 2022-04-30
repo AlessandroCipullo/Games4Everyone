@@ -18,10 +18,10 @@
     <jsp:include page="Header.jsp"></jsp:include>
     <section class="prodotti">
       <div class="filtri">
-        <p class="filtro1">I pi&#249; venduti</p>
-        <p class="filtro2">Nuove Offerte</p>
-        <p class="filtro2">Nuove Uscite</p>
-        <p class="filtro3">Top Preordini</p>
+        <a href="FiltriVendite?filtro=vendite" style="text-decoration:none;"><p class="filtro1">I più venduti</p></a>
+        <a href="FiltriVendite?filtro=data" style="text-decoration:none;"><p class="filtro2">Nuove Uscite</p></a>
+        <p class="filtro2" style="text-decoration:none;">Nuove Offerte</p>
+        <p class="filtro3" style="text-decoration:none;">Top Preordini</p>
       </div>
       <div class="schede">
       <%
