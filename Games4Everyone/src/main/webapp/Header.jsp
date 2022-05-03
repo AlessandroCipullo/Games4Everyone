@@ -3,9 +3,12 @@
 <%
 	UtenteBean utente = (UtenteBean) request.getSession().getAttribute("loggedUserData");
 	String usernameUtente = "";
+	String idUtente = null;
 	if(utente != null){
-		usernameUtente = "Ciao " + utente.getUsername() + "!";		
+		usernameUtente = "Ciao " + utente.getUsername() + "!";	
+		idUtente = utente.getId_utente();
 	}
+	request.getSession().setAttribute("idUtente", idUtente);
 %>
 <html lang="en">
 <head>
@@ -18,15 +21,16 @@
 <body>
 	<section class="navbar">
       <img class="logo" src="./imgs/logo.png">
-      <p class="saluto"><%=usernameUtente %></p>
+      <a href="AccountUtente.jsp" class="saluto"><%=usernameUtente %></a>
       <form action="RicercaProdotti" method="get">
       	<input type="text" placeholder="Cerca un prodotto..." name="cerca" class="searchtxt">
+      	<button type="submit" class="submitsearch"><img src="./imgs/search-icon.png"></button>
       </form>
       <div class="icons">
         <img src="./imgs/login-icon.png">
         <a href="Login-Form.jsp" class="login">Accedi</a>
         <img src="./imgs/cart-icon.png">
-        <p class="cart">Carrello</p>
+        <a href="CarrelloOp?action=v&id=<%=idUtente %>" class="cart">Carrello</a>
       </div>
     </section>
     <section class="links">

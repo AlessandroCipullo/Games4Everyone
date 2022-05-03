@@ -6,10 +6,10 @@
 
 .navbar{
     position: relative;
-    width: 1423px;
-    height: 120px;
     left: 0px;
     top: 0px;
+    width: 1423px;
+    height: 120px;
     background: #000000;
 }
 
@@ -26,13 +26,12 @@
 	position: absolute;
 	top: 43px;
 	left: 500px;
+    color: #FFFFFF;
 	font-family: 'Rakkas';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
-    color: #FFFFFF;
+    font-size: 30px;
 }
-
 
 .searchtxt{
     position: absolute;
@@ -41,22 +40,30 @@
     width: 322px;
     height: 60px;
     background: #F45F5F;
-    border: 1px solid #000000;
+    color: #FFFFFF;
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
     font-family: 'Rakkas';
     font-style: normal;
     font-weight: 400;
     font-size: 27px;
-    color: #FFFFFF;
+    border-radius: 20px;
+    border: 1px solid #000000;
 }
 .searchtxt::placeholder{
+    color: #FFFFFF;
     font-family: 'Rakkas';
     font-style: normal;
     font-weight: 400;
     font-size: 23px;
-    color: #FFFFFF;
+}
+
+.submitsearch{
+	position: absolute;
+	right: 280px;
+	top: 38px;
+	background: #F45F5F;
+	border-radius: 10px;
 }
 
 .icons{
@@ -70,8 +77,8 @@
 
 .login{
     position: relative;
-    font-size: 21px;   
     color: white;
+    font-size: 21px;   
     text-decoration: none;
 }
 .cart{
@@ -85,20 +92,20 @@
 .links{
     width: 1423px;
     height: 55px;
-    background: #DC143C;
     display: flex;
     justify-content: space-between;
+    background: #DC143C;
     border-bottom: 1px solid white;
 }
 
 .link{
     position: relative;
+    color: white;
     font-family: 'Rhodium Libre';
     font-style: normal;
     font-weight: 400;
     font-size: 34px;
     line-height: 41px;
-    color: white;
     text-decoration: none;
     border-radius: 10px;
     transition: all .2s ease-in-out;

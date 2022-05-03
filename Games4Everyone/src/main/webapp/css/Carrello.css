@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+.carrello{
+    position: relative;
+    background: #d18f8f;
+    height: 1000px;
+}
+.carrellotag{
+    position: absolute;
+    width: 445px;
+    height: 95px;
+    left: 113px;
+    top: 33px;
+    font-family: 'Rakkas';
+    font-style: normal;
+    font-size: 52px;
+    color: #000000;
+}
+.prodotti{
+    position: absolute;
+    top: 130px;
+    left: 130px;
+    width: 800px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+}
+
+.scheda{
+    position: relative;
+    padding: 10px;
+    border: 1px solid black;
+}
+.prodimg{
+    margin: 15px;
+    width: 173px;
+    height: 168px;
+}
+.linea{
+    margin: 10px;
+}
+.quantita{
+    position: absolute;
+    bottom: 35px;
+    width: 70px;
+}
+.descrizione{
+    position: absolute;
+    top: 40px;
+    left: 230px;
+    right: 25px;
+}

@@ -39,7 +39,7 @@ public class UtenteDAO {
 			if(rs.getInt("IsAdmin") == 1) {
 				return true;
 			}
-			return false;
+			//return false;
 		}
 		return false;
 	}
