@@ -186,14 +186,21 @@ private static DataSource ds;
 		return prodotti;
 	}
 	
-	public static Collection<ProdottoBean> orderBySales() throws SQLException{
+	public static Collection<ProdottoBean> orderBySales(String console) throws SQLException{
 		Connection con = null;
 		PreparedStatement ps = null;
-		String retrieve = "SELECT * FROM prodotto ORDER BY Vendite DESC";
 		con = ds.getConnection();
-		ps = con.prepareStatement(retrieve);
-		ResultSet rs = ps.executeQuery();
+		String retrieve = "SELECT * FROM prodotto ORDER BY Vendite DESC";
 		
+		if(!console.equals("null")) {
+			retrieve = "SELECT * FROM prodotto WHERE Piattaforma = ? ORDER BY Vendite DESC";
+			ps = con.prepareStatement(retrieve);
+			ps.setString(1, console);
+		}else {
+			ps = con.prepareStatement(retrieve);
+		}
+		
+		ResultSet rs = ps.executeQuery();
 		Collection<ProdottoBean> prodotti = new ArrayList<>();
 		while(rs.next()) {
 			ProdottoBean prod = new ProdottoBean();
@@ -217,12 +224,20 @@ private static DataSource ds;
 		return prodotti;
 	}
 	
-	public static Collection<ProdottoBean> orderByReleaseDate() throws SQLException{
+	public static Collection<ProdottoBean> orderByReleaseDate(String console) throws SQLException{
 		Connection con = null;
 		PreparedStatement ps = null;
-		String retrieve = "SELECT * FROM prodotto ORDER BY Data_Rilascio DESC";
 		con = ds.getConnection();
-		ps = con.prepareStatement(retrieve);
+		String retrieve = "SELECT * FROM prodotto ORDER BY Data_Rilascio DESC";
+		
+		if(!console.equals("null")) {
+			retrieve = "SELECT * FROM prodotto WHERE Piattaforma = ? ORDER BY Data_Rilascio DESC";
+			ps = con.prepareStatement(retrieve);
+			ps.setString(1, console);
+		}else {
+			ps = con.prepareStatement(retrieve);
+		}
+		
 		ResultSet rs = ps.executeQuery();
 		
 		Collection<ProdottoBean> prodotti = new ArrayList<>();

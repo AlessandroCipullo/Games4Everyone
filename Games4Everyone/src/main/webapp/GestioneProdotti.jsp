@@ -99,10 +99,10 @@
 		<input type="hidden" name="action" value="insert"> 
 		
 		<label for="nome">Nome:</label><br> 
-		<input name="nome" type="text" maxlength="25" required placeholder="Inserisci nome"><br> 
+		<input name="nome" type="text" maxlength="45" required><br> 
 		
 		<label for="descrizione">Descrizione:</label><br>
-		<textarea name="descrizione" maxlength="600" rows="3" required placeholder="Inserisci descrizione"></textarea><br>
+		<textarea name="descrizione" maxlength="600" rows="3" required></textarea><br>
 		
 		<label for="prezzo">Prezzo:</label><br> 
 		<input name="prezzo" type="number" min="0" value="0" required><br>
@@ -129,7 +129,7 @@
 		<label for="nintendo">Nintendo</label><br>
 		
 		<label for="dev">Sviluppatore:</label><br>
-		<input name="dev" type="text" maxlength="25" required placeholder="Inserisci sviluppatore"><br>
+		<input name="dev" type="text" maxlength="45" required placeholder="Inserisci sviluppatore"><br>
 		
 		<label for="trailer">Url del trailer:</label><br>
 		<input name="trailer" type="text" required placeholder="Inserisci trailer"><br> <!-- Link esterni accettati -->

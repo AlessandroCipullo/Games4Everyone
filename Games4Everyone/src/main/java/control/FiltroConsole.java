@@ -26,6 +26,7 @@ public class FiltroConsole extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setAttribute("prodotti", ProdottoDAO.filterByConsole(request.getParameter("console").toString()));
+			request.setAttribute("console", request.getParameter("console").toString());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

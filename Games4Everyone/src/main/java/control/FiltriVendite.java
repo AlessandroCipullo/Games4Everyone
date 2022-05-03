@@ -23,15 +23,16 @@ public class FiltriVendite extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String filtro = request.getParameter("filtro");
-		
+		String console = request.getParameter("console");
 			try {
 				if(filtro.equalsIgnoreCase("vendite")) {
-					request.setAttribute("prodotti", ProdottoDAO.orderBySales());
+					request.setAttribute("prodotti", ProdottoDAO.orderBySales(console));
 				}
 				if(filtro.equalsIgnoreCase("data")) {
-					request.setAttribute("prodotti", ProdottoDAO.orderByReleaseDate());
+					request.setAttribute("prodotti", ProdottoDAO.orderByReleaseDate(console));
 				}
 			} catch (SQLException e) {
+				System.out.println("azz");
 				e.printStackTrace();
 			}
 			

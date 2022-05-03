@@ -23,17 +23,23 @@
       	<input type="text" placeholder="Cerca un prodotto..." name="cerca" class="searchtxt">
       </form>
       <div class="icons">
+        <img src="./imgs/login-icon.png">
         <a href="Login-Form.jsp" class="login">Accedi</a>
+        <img src="./imgs/cart-icon.png">
         <p class="cart">Carrello</p>
-        <p class="pref">Preferiti</p>
       </div>
     </section>
     <section class="links">
       <a href="Home.jsp" class="link">Home</a>
+      <img src="./imgs/home-icon.png">
       <a href="FiltroConsole?console=pc" class="link">PC</a>
+      <img src="./imgs/pc-icon.png">
       <a href="FiltroConsole?console=Playstation" class="link">Playstation</a>
+      <img src="./imgs/play-icon.png">
       <a href="FiltroConsole?console=XBox" class="link">XBox</a>
+      <img src="./imgs/xbox-icon.png">
       <a href="FiltroConsole?console=NintendoSwitch" class="link">Nintendo</a>
+      <img src="./imgs/switch-icon.png">
     </section>
 </body>
 </html>

@@ -28,14 +28,12 @@ public class Login extends HttpServlet {
 		try {
 			checkLogin(username, password);
 			request.getSession().setAttribute("loggedUserData", UtenteDAO.retrievebyUsername(username));
-			request.getSession().setAttribute("userRoles", true);
 			redirectedPage = "/Home.jsp";
 			if(UtenteDAO.isAdmin(username)) {
 				redirectedPage = "/GestioneProdotti.jsp";
 				request.getSession().setAttribute("adminRoles", true);
 			}
 		} catch (Exception e) {
-			request.getSession().setAttribute("userRoles", false);
 			request.getSession().removeAttribute("loggedUserData");
 			redirectedPage = "/LoginError.jsp";
 		}

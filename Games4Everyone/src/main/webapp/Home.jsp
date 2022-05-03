@@ -5,6 +5,7 @@
 	if(prodotti == null){
 		prodotti = ProdottoDAO.retrieveAll();
 	}
+	String console = (String) request.getAttribute("console");
 %>
 <html lang="en">
 <head>
@@ -18,8 +19,8 @@
     <jsp:include page="Header.jsp"></jsp:include>
     <section class="prodotti">
       <div class="filtri">
-        <a href="FiltriVendite?filtro=vendite" style="text-decoration:none;"><p class="filtro1">I più venduti</p></a>
-        <a href="FiltriVendite?filtro=data" style="text-decoration:none;"><p class="filtro2">Nuove Uscite</p></a>
+        <a href="FiltriVendite?filtro=vendite&console=<%=console %>" style="text-decoration:none;"><p class="filtro1">I più venduti</p></a>
+        <a href="FiltriVendite?filtro=data&console=<%=console %>" style="text-decoration:none;"><p class="filtro2">Nuove Uscite</p></a>
         <p class="filtro2" style="text-decoration:none;">Nuove Offerte</p>
         <p class="filtro3" style="text-decoration:none;">Top Preordini</p>
       </div>
@@ -33,7 +34,7 @@
         <div class="scheda">
           <div class="imgbox">
             <img class="img" src=<%=bean.getImgPath() %> alt="">
-            <p class="prezzo"><%=bean.getPrezzo() %></p>
+            <p class="prezzo">&euro;<%=bean.getPrezzo() %></p>
             <p class="sh"><%=bean.getSviluppatore() %></p>
           </div>
           <p class="acq"><a class="acq" href="DettaglioProdotto?id=<%=bean.getCod_prodotto() %>">Acquista ora</a></p>

@@ -5,19 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
     <title>Login</title>
 </head>
 <body>
-      <form method="post" action="Login" id="form">
+      <form method="post" action="Login" id="LoginForm">
         <ul class="lista">
          <li>
            <label for="username">Username:</label>
-           <input type="text" id="username" name="username">
+           <input type="text" id="username" maxlength="25" name="username" required placeholder="Inserisci username...">
          </li>
          <li>
            <label for="password">Password:</label>
-           <input type="password" id="password" name="password"><br>
+           <input type="password" id="password" maxlength="20" name="password" required placeholder="Inserisci password..."><br>
            <input type="submit" id="submit" value="Accedi">
          </li>
         </ul>

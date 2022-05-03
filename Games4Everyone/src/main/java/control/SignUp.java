@@ -32,9 +32,8 @@ public class SignUp extends HttpServlet {
 		String redirectedPage;
 		try {
 			UtenteDAO.saveUser(user);
-			request.getSession().setAttribute("loggedUser", UtenteDAO.retrievebyUsername(user.getUsername()));
-			request.getSession().setAttribute("adminRoles", true);
-			redirectedPage = "/LoggedUserPage.jsp";
+			request.getSession().setAttribute("loggedUserData", UtenteDAO.retrievebyUsername(user.getUsername()));
+			redirectedPage = "/Home.jsp";
 		} catch (SQLException e) {
 			redirectedPage = "/SignUp-Form.jsp";
 		}
