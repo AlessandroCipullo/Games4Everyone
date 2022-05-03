@@ -32,10 +32,9 @@ public class FiltriVendite extends HttpServlet {
 					request.setAttribute("prodotti", ProdottoDAO.orderByReleaseDate(console));
 				}
 			} catch (SQLException e) {
-				System.out.println("azz");
 				e.printStackTrace();
 			}
-			
+		request.setAttribute("console", console);
 		RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
 		rd.forward(request, response);
 	}

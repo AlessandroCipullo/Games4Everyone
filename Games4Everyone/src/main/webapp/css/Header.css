@@ -29,10 +29,9 @@
 	font-family: 'Rakkas';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 30px;
     color: #FFFFFF;
 }
-
 
 .searchtxt{
     position: absolute;
@@ -57,6 +56,14 @@
     font-weight: 400;
     font-size: 23px;
     color: #FFFFFF;
+}
+
+.submitsearch{
+	position: absolute;
+	right: 280px;
+	top: 38px;
+	background: #F45F5F;
+	border-radius: 10px;
 }
 
 .icons{

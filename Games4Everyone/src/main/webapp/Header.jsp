@@ -18,9 +18,10 @@
 <body>
 	<section class="navbar">
       <img class="logo" src="./imgs/logo.png">
-      <p class="saluto"><%=usernameUtente %></p>
+      <a href="AccountUtente.jsp"><p class="saluto"><%=usernameUtente %></p></a>
       <form action="RicercaProdotti" method="get">
       	<input type="text" placeholder="Cerca un prodotto..." name="cerca" class="searchtxt">
+      	<button type="submit" class="submitsearch"><img src="./imgs/search-icon.png"></button>
       </form>
       <div class="icons">
         <img src="./imgs/login-icon.png">
