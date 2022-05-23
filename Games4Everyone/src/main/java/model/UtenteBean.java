@@ -7,7 +7,14 @@ public class UtenteBean {
 	String cellulare;
 	String username;
 	String password;
+	String email;
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getId_utente() {
 		return id_utente;
 	}

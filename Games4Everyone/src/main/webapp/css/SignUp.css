@@ -3,10 +3,12 @@
     padding: 0;
     scroll-behavior: smooth;
 }
-
+body{
+	background: #F45F5F;
+}
 .top{
     position: relative;
-    width: 1440px;
+    width: 100%;
     height: 120px;
     left: 0px;
     top: 0px;
@@ -16,7 +18,7 @@
 .logo{
     position: absolute;
     top: 7px;
-    left: 600px;
+    left: 43%;
     height: 110px;
     width: 230px;
     background-size: cover;
@@ -27,10 +29,11 @@
 	top: 40px;
 	left: 500px;
 	width: 400px;
-	height: 520px;
+	height: 560px;
 	border: 1px solid black;
 	background-color: #ff878d;
 	border-radius: 25px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .registrati{
@@ -61,7 +64,19 @@
 	height: 30px;
 	border-radius: 10px;
 }
-
+#nome:focus{
+	background-color: #F45F5F;
+	color: white;
+}
+#nomeErr{
+	position: absolute;
+	top: 40px;
+	left: 170px;
+	width: 170px;
+	font-size: 12px;
+	color: black;
+	font-weight: 0;
+}
 .cognomelbl{
 	position: absolute;
 	top: 130px;
@@ -80,7 +95,19 @@
 	height: 30px;
 	border-radius: 10px;
 }
-
+#cognome:focus{
+	background-color: #F45F5F;
+	color: white;
+}
+#cognomeErr{
+	position: absolute;
+	top: 40px;
+	left: 170px;
+	width: 170px;
+	font-size: 12px;
+	color: black;
+	font-weight: 0;
+}
 .cellbl{
 	position: absolute;
 	top: 200px;
@@ -99,7 +126,19 @@
 	height: 30px;
 	border-radius: 10px;
 }
-
+#cellulare:focus{
+	background-color: #F45F5F;
+	color: white;
+}
+#cellErr{
+	position: absolute;
+	top: 40px;
+	left: 170px;
+	width: 170px;
+	font-size: 12px;
+	color: black;
+	font-weight: 0;
+}
 .usrlbl{
 	position: absolute;
 	top: 270px;
@@ -118,7 +157,19 @@
 	height: 30px;
 	border-radius: 10px;
 }
-
+#username:focus{
+	background-color: #F45F5F;
+	color: white;
+}
+#usrErr{
+	position: absolute;
+	top: 40px;
+	left: 170px;
+	width: 170px;
+	font-size: 12px;
+	color: black;
+	font-weight: 0;
+}
 .pwdlbl{
 	position: absolute;
 	top: 340px;
@@ -137,10 +188,53 @@
 	height: 30px;
 	border-radius: 10px;
 }
+#password:focus{
+	background-color: #F45F5F;
+	color: white;
+}
+#pwdErr{
+	position: absolute;
+	top: 40px;
+	left: 170px;
+	width: 170px;
+	font-size: 12px;
+	color: black;
+	font-weight: 0;
+}
+.emaillbl{
+	position: absolute;
+	top: 410px;
+	left: 60px;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+}
 
+#email{
+	position: absolute;
+	top: 450px;
+	left: 60px;
+	width: 160px;
+	height: 30px;
+	border-radius: 10px;
+}
+#email:focus{
+	background-color: #F45F5F;
+	color: white;
+}
+#emailErr{
+	position: absolute;
+	top: 43px;
+	left: 170px;
+	width: 170px;
+	font-size: 12px;
+	color: black;
+	font-weight: 0;
+}
 #submit{
 	position: absolute;
-	bottom: 40px;
+	bottom: 20px;
 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -158,6 +252,7 @@
 	border: 1px solid black;
 	background-color: #ff878d;
 	border-radius: 25px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .accedi{

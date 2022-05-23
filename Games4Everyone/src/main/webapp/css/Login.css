@@ -6,7 +6,7 @@
 
 .top{
     position: relative;
-    width: 1440px;
+    width: 100%;
     height: 120px;
     left: 0px;
     top: 0px;
@@ -31,6 +31,7 @@
 	border: 1px solid black;
 	background-color: #ff878d;
 	border-radius: 25px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .accedi{
@@ -61,6 +62,10 @@
 	height: 30px;
 	border-radius: 10px;
 }
+#username:focus{
+	background-color: #F45F5F;
+	color: white;
+}
 
 .pwdlbl{
 	position: absolute;
@@ -80,10 +85,14 @@
 	height: 30px;
 	border-radius: 10px;
 }
+#password:focus{
+	background-color: #F45F5F;
+	color: white;
+}
 
 #submit{
 	position: absolute;
-	bottom: 30px;
+	bottom: 20px;
 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -101,6 +110,7 @@
 	border: 1px solid black;
 	background-color: #ff878d;
 	border-radius: 25px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .registrati{
@@ -122,4 +132,18 @@
     border-radius: 10px;
     left: 50px;
 }
-
+#check{
+	position: absolute;
+	bottom: 78px;
+	left: 65px;
+	transform: scale(1.5);
+}
+.lblcheck{
+	position: absolute;
+	bottom: 76px;
+	left: 87px;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+}

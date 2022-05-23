@@ -32,6 +32,7 @@
 		<img class="img" src="<%=prodotto.getImgPath()%>">
 		<p class="descrizione">Descrizione:<br><%=prodotto.getDescrizione() %></p> 
 		<p class="prezzo">Prezzo: &euro;<%=prodotto.getPrezzo() %></p>
+		<img src="./imgs/cart-mini-icon.png" alt="" class="cartIcon">
 		<a href="CarrelloOp?id=<%=idUtente %>&cod=<%=prodotto.getCod_prodotto() %>&action=a" class="addToCart" >Aggiungi al carrello</a>
 		<!-- Firefox blocca la visualizzazione di un video esterno (Youtube) tramite link -->
 		<iframe class="trailer" src="<%=prodotto.getTrailer() %>?autoplay=1&mute=1"></iframe>

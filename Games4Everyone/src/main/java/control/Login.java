@@ -28,6 +28,10 @@ public class Login extends HttpServlet {
 		try {
 			checkLogin(username, password);
 			request.getSession().setAttribute("loggedUserData", UtenteDAO.retrievebyUsername(username));
+			if(request.getSession().getAttribute("cart") != null) {
+				response.sendRedirect("Acquisto?action=s");
+				return;
+			}
 			redirectedPage = "/Home.jsp";
 			if(UtenteDAO.isAdmin(username)) {
 				redirectedPage = "/GestioneProdotti.jsp";

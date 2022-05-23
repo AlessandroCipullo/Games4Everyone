@@ -39,7 +39,6 @@ public class UtenteDAO {
 			if(rs.getInt("IsAdmin") == 1) {
 				return true;
 			}
-			//return false;
 		}
 		return false;
 	}
@@ -79,6 +78,7 @@ public class UtenteDAO {
 			utente.setCellulare(rs.getString("Cellulare"));
 			utente.setUsername(rs.getString("Username"));
 			utente.setPassword(rs.getString("Password"));
+			utente.setEmail(rs.getString("Email"));
 		}
 		con.close();
 		return utente;
@@ -87,8 +87,8 @@ public class UtenteDAO {
 	public static void saveUser(UtenteBean utente) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
-		String insertsql = "INSERT INTO utente (Nome, Cognome, Cellulare, Username, Password) "
-				+ "VALUES (?, ?, ?, ?, ?)";
+		String insertsql = "INSERT INTO utente (Nome, Cognome, Cellulare, Username, Password, Email) "
+				+ "VALUES (?, ?, ?, ?, ?, ?)";
 		con = ds.getConnection();
 		ps = con.prepareStatement(insertsql);
 		ps.setString(1, utente.getNome());
@@ -96,6 +96,7 @@ public class UtenteDAO {
 		ps.setString(3, utente.getCellulare());
 		ps.setString(4, utente.getUsername());
 		ps.setString(5, utente.getPassword());
+		ps.setString(6, utente.getEmail());
 		
 		if(ps.executeUpdate() > 0) {
 			con.close();
@@ -104,4 +105,22 @@ public class UtenteDAO {
 		con.close();
 		throw new SQLException("Utente non inserito");
 	}
+	
+	public static Boolean checkEmail(String email) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		String checksql = "SELECT * FROM utente WHERE Email = ?";
+		con = ds.getConnection();
+		ps = con.prepareStatement(checksql);
+		ps.setString(1, email);
+		ResultSet rs = ps.executeQuery();
+		
+		while(rs.next()) {
+			con.close();
+			return true;
+		}
+		con.close();
+		return false;
+	}
 }
+

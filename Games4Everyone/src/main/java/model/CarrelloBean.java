@@ -27,4 +27,28 @@ public class CarrelloBean {
 	public void setProdotti(ProdottoBean prodotto, Integer quant) {
 		prodotti.add(new ProdottoCarrello(prodotto, quant));
 	}
+	public static ProdottoCarrello getProdotto(CarrelloBean cart, ProdottoBean prodotto) {
+		int i = 0;
+		
+		for(i=0; i<cart.getProdotti().size(); i++) {
+			if(cart.getProdotti().get(i).prod.getNome().equals(prodotto.getNome())) {
+				return cart.getProdotti().get(i);
+			}
+		}
+		return cart.getProdotti().get(0);
+	}
+	public static void removeProdotto(CarrelloBean cart, ProdottoBean prodotto) {
+		int i = 0;
+		
+		for(i=0; i<cart.getProdotti().size(); i++) {
+			if(cart.getProdotti().get(i).prod.getNome().equals(prodotto.getNome())) {
+				cart.getProdotti().remove(i);
+				return;
+			}
+		}
+		return;
+	}
+	public static Boolean contiene(CarrelloBean cart,ProdottoBean prodotto) {
+		return cart.getProdotti().stream().map(p -> p.prod.getNome()).filter(c -> c.equals(prodotto.nome)).findAny().isPresent();
+	}
 }

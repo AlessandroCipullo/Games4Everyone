@@ -28,6 +28,7 @@ public class SignUp extends HttpServlet {
 		user.setCellulare(request.getParameter("cellulare"));
 		user.setUsername(request.getParameter("username"));
 		user.setPassword(request.getParameter("password"));
+		user.setEmail(request.getParameter("email"));
 		
 		String redirectedPage;
 		try {
@@ -41,6 +42,14 @@ public class SignUp extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		try {
+			Boolean email = UtenteDAO.checkEmail(request.getParameter("email"));
+			if(email == true) {
+				response.getWriter().write("Questa email e' gia' esistente!");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

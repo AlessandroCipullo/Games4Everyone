@@ -8,7 +8,7 @@
     background:url("back.jpg") no-repeat center 0;
     background-size: cover;
     height: 100%;
-    width: 1423px;
+    width: 100%;
 }
 .filtro1{
     width: 284px;
@@ -67,7 +67,7 @@
 }
 
 .filtri{
-    width: 1423px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }

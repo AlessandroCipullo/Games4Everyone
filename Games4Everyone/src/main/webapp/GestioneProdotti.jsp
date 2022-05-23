@@ -72,7 +72,8 @@
 			<th>Rilascio</th>
 			<th>Piattaforma</th>
 			<th>Sviluppatore</th>
-			<!-- Inserisci genere -->
+			<th>Genere</th>
+			<th>Sottogenere</th>
 			<th>Trailer</th>
 			<th>ImgPath</th>
 		</tr>
@@ -86,7 +87,8 @@
 			<td><%=product.getData_rilascio() %></td>
 			<td><%=product.getPiattaforma() %></td>
 			<td><%=product.getSviluppatore() %></td>
-			<!-- Inserisci genere -->
+			<td><%=product.getGenere() %></td>
+			<td><%=product.getSottogenere() %></td>
 			<td><%=product.getTrailer() %></td>
 			<td><%=product.getImgPath() %></td>
 		</tr>
@@ -116,7 +118,11 @@
 		<label for="rilascio">Data di rilascio:</label><br>
 		<input name="rilascio" type="date" required><br>
 		
-		<!-- Genere da inserire -->
+		<label for="genere">Genere:</label><br> 
+		<input name="genere" type="text" maxlength="45" required><br> 
+		
+		<label for="sottogenere">Sottogenere:</label><br> 
+		<input name="sottogenere" type="text" maxlength="45" required><br> 
 		
 		<label for="piattaforma">Piattaforma:</label><br>
 		<input name="piattaforma" type="radio" id="play" value="Playstation">

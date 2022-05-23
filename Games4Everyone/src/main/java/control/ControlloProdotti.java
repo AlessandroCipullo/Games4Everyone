@@ -16,9 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.ProdottoBean;
 import model.ProdottoDAO;
 
-/**
- * Servlet implementation class ControlloProdotti
- */
 @WebServlet("/ControlloProdotti")
 public class ControlloProdotti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -46,7 +43,8 @@ public class ControlloProdotti extends HttpServlet {
 					Integer quantita = Integer.parseInt(request.getParameter("quantita"));
 					Integer iva = Integer.parseInt(request.getParameter("iva"));
 					Date rilascio = java.sql.Date.valueOf(LocalDate.parse(request.getParameter("rilascio"), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-					// Genere da inserire
+					String genere = request.getParameter("genere");
+					String sottogenere = request.getParameter("sottogenere");
 					String piattaforma = request.getParameter("piattaforma");
 					String sviluppatore = request.getParameter("dev");
 					String trailer = request.getParameter("trailer");
@@ -63,6 +61,8 @@ public class ControlloProdotti extends HttpServlet {
 					bean.setSviluppatore(sviluppatore);
 					bean.setTrailer(trailer);
 					bean.setImgPath(imgpath);
+					bean.setGenere(genere);
+					bean.setSottogenere(sottogenere);
 					ProdottoDAO.saveProdotto(bean);
 				}
 			}

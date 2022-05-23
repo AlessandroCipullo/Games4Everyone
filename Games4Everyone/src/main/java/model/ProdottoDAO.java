@@ -39,7 +39,6 @@ private static DataSource ds;
 		while(rs.next()) {
 			prodotto.setCod_prodotto(rs.getString("Cod_Prodotto"));
 			prodotto.setNome(rs.getString("Nome"));
-			prodotto.setGenere(rs.getString("Genere"));
 			prodotto.setPiattaforma(rs.getString("Piattaforma"));
 			prodotto.setDescrizione(rs.getString("Descrizione"));
 			prodotto.setPrezzo(rs.getDouble("Prezzo"));
@@ -49,6 +48,8 @@ private static DataSource ds;
 			prodotto.setIva(rs.getInt("Iva"));
 			prodotto.setData_rilascio(rs.getDate("Data_Rilascio"));
 			prodotto.setTrailer(rs.getString("Trailer"));
+			prodotto.setGenere(rs.getString("Genere"));
+			prodotto.setSottogenere(rs.getString("Sottogenere"));
 		}
 		con.close();
 		return prodotto;
@@ -58,8 +59,8 @@ private static DataSource ds;
 		Connection con = null;
 		PreparedStatement ps = null;
 		String insertsql = "INSERT INTO prodotto "
-				+ "(Nome, Prezzo, Iva, Data_Rilascio, Quantita, Descrizione, Trailer, ImgPath, Sviluppatore, Genere, Piattaforma) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "(Nome, Prezzo, Iva, Data_Rilascio, Quantita, Descrizione, Trailer, ImgPath, Sviluppatore, Genere, Piattaforma, Sottogenere) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		con = ds.getConnection();
 		con.setAutoCommit(false);
 		ps = con.prepareStatement(insertsql);
@@ -74,6 +75,7 @@ private static DataSource ds;
 		ps.setString(9, prodotto.getSviluppatore());
 		ps.setString(10, prodotto.getGenere());
 		ps.setString(11, prodotto.getPiattaforma());
+		ps.setString(12, prodotto.getSottogenere());
 		
 		if(ps.executeUpdate() > 0) {
 			con.commit();
@@ -122,6 +124,7 @@ private static DataSource ds;
 			prod.setIva(rs.getInt("Iva"));
 			prod.setData_rilascio(rs.getDate("Data_Rilascio"));
 			prod.setTrailer(rs.getString("Trailer"));
+			prod.setSottogenere(rs.getString("Sottogenere"));
 			
 			prodotti.add(prod);
 		}
@@ -147,6 +150,8 @@ private static DataSource ds;
 			prod.setSviluppatore(rs.getString("Sviluppatore"));
 			prod.setPrezzo(rs.getDouble("Prezzo"));
 			prod.setImgPath(rs.getString("ImgPath"));
+			prod.setGenere(rs.getString("Genere"));
+			prod.setSottogenere(rs.getString("Sottogenere"));
 			
 			prodotti.add(prod);
 		}
@@ -179,6 +184,7 @@ private static DataSource ds;
 			prod.setIva(rs.getInt("Iva"));
 			prod.setData_rilascio(rs.getDate("Data_Rilascio"));
 			prod.setTrailer(rs.getString("Trailer"));
+			prod.setSottogenere(rs.getString("Sottogenere"));
 			
 			prodotti.add(prod);
 		}
@@ -217,6 +223,7 @@ private static DataSource ds;
 			prod.setIva(rs.getInt("Iva"));
 			prod.setData_rilascio(rs.getDate("Data_Rilascio"));
 			prod.setTrailer(rs.getString("Trailer"));
+			prod.setSottogenere(rs.getString("Sottogenere"));
 			
 			prodotti.add(prod);
 		}
@@ -256,6 +263,7 @@ private static DataSource ds;
 			prod.setIva(rs.getInt("Iva"));
 			prod.setData_rilascio(rs.getDate("Data_Rilascio"));
 			prod.setTrailer(rs.getString("Trailer"));
+			prod.setSottogenere(rs.getString("Sottogenere"));
 			
 			prodotti.add(prod);
 		}
