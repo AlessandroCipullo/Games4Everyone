@@ -36,7 +36,7 @@ public class MetodiPagamento extends HttpServlet {
 		String redirect = "AccountUtente.jsp";
 		
 		try {
-			if(action != null) {
+			if(!action.equals("null")) {
 				if(action.equals("add")) {
 					String tipo = request.getParameter("tipo");
 					String provider = request.getParameter("provider");

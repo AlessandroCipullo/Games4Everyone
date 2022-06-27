@@ -44,7 +44,6 @@ public class ControlloProdotti extends HttpServlet {
 					Integer iva = Integer.parseInt(request.getParameter("iva"));
 					Date rilascio = java.sql.Date.valueOf(LocalDate.parse(request.getParameter("rilascio"), DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 					String genere = request.getParameter("genere");
-					String sottogenere = request.getParameter("sottogenere");
 					String piattaforma = request.getParameter("piattaforma");
 					String sviluppatore = request.getParameter("dev");
 					String trailer = request.getParameter("trailer");
@@ -62,7 +61,6 @@ public class ControlloProdotti extends HttpServlet {
 					bean.setTrailer(trailer);
 					bean.setImgPath(imgpath);
 					bean.setGenere(genere);
-					bean.setSottogenere(sottogenere);
 					ProdottoDAO.saveProdotto(bean);
 				}
 			}

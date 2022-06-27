@@ -6,7 +6,6 @@ public class ProdottoBean {
 	String cod_prodotto;
 	String nome;
 	String genere;
-	String sottogenere;
 	String piattaforma;
 	String descrizione;
 	String trailer;
@@ -16,12 +15,7 @@ public class ProdottoBean {
 	Double prezzo;
 	Integer iva;
 	Date data_rilascio;
-	public String getSottogenere() {
-		return sottogenere;
-	}
-	public void setSottogenere(String sottogenere) {
-		this.sottogenere = sottogenere;
-	}
+
 	public Integer getVendite() {
 		return vendite;
 	}

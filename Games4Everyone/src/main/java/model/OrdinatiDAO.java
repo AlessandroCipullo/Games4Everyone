@@ -48,6 +48,7 @@ private static DataSource ds;
 			
 			ordinati.add(ord);
 		}
+		con.close();
 		
 		return ordinati;
 	}

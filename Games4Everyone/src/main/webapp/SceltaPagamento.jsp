@@ -51,7 +51,7 @@
 			}
 		%>
 		</table>
-		<a href="Home.jsp"><h2>Torna alla home</h2></a>
+		<a href="Home.jsp"><center><h2>Torna alla home</h2></center></a>
 		
 		<script>
 			function Conferma(){

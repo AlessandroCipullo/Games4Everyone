@@ -26,6 +26,7 @@ public class FiltriVendite extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String filtro = request.getParameter("filtro");
 		String console = request.getParameter("console");
+		
 			try {
 				if(filtro.equalsIgnoreCase("vendite")) {
 					request.setAttribute("prodotti", ProdottoDAO.orderBySales(console));
@@ -35,6 +36,9 @@ public class FiltriVendite extends HttpServlet {
 				}
 				if(filtro.equalsIgnoreCase("preorder")) {
 					request.setAttribute("prodotti", ProdottoDAO.orderByPreorder(console));
+				}
+				if(filtro.equalsIgnoreCase("genere")) {
+					request.setAttribute("prodotti", ProdottoDAO.filterByGenre(console, request.getParameter("genere")));
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();

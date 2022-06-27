@@ -108,6 +108,7 @@ body{
   border: none;
   text-align: left;
   font-size: 15px;
+  text-decoration: none;
   transition: 0.4s;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -187,6 +188,23 @@ body{
 }
 #tabellaMetodi{
 	position: relative;
-	left: 510px;
 	margin-top: 40px;
+	font-family: Arial, Helvetica, sans-serif;
+  	border-collapse: collapse;
+  	width: 50%;
+  	left: 400px;
+}
+#tabellaMetodi td, #tabellaMetodi th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#tabellaMetodi tr:hover {background-color: #ff878d;}
+
+#tabellaMetodi th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: black;
+  color: white;
 }

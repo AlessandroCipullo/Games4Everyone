@@ -51,7 +51,6 @@ private static DataSource ds;
 			prodotto.setData_rilascio(rs.getDate("Data_Rilascio"));
 			prodotto.setTrailer(rs.getString("Trailer"));
 			prodotto.setGenere(rs.getString("Genere"));
-			prodotto.setSottogenere(rs.getString("Sottogenere"));
 		}
 		con.close();
 		return prodotto;
@@ -61,8 +60,8 @@ private static DataSource ds;
 		Connection con = null;
 		PreparedStatement ps = null;
 		String insertsql = "INSERT INTO prodotto "
-				+ "(Nome, Prezzo, Iva, Data_Rilascio, Quantita, Descrizione, Trailer, ImgPath, Sviluppatore, Genere, Piattaforma, Sottogenere) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "(Nome, Prezzo, Iva, Data_Rilascio, Quantita, Descrizione, Trailer, ImgPath, Sviluppatore, Genere, Piattaforma) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		con = ds.getConnection();
 		con.setAutoCommit(false);
 		ps = con.prepareStatement(insertsql);
@@ -77,7 +76,6 @@ private static DataSource ds;
 		ps.setString(9, prodotto.getSviluppatore());
 		ps.setString(10, prodotto.getGenere());
 		ps.setString(11, prodotto.getPiattaforma());
-		ps.setString(12, prodotto.getSottogenere());
 		
 		if(ps.executeUpdate() > 0) {
 			con.commit();
@@ -126,7 +124,6 @@ private static DataSource ds;
 			prod.setIva(rs.getInt("Iva"));
 			prod.setData_rilascio(rs.getDate("Data_Rilascio"));
 			prod.setTrailer(rs.getString("Trailer"));
-			prod.setSottogenere(rs.getString("Sottogenere"));
 			
 			prodotti.add(prod);
 		}
@@ -153,7 +150,6 @@ private static DataSource ds;
 			prod.setPrezzo(rs.getDouble("Prezzo"));
 			prod.setImgPath(rs.getString("ImgPath"));
 			prod.setGenere(rs.getString("Genere"));
-			prod.setSottogenere(rs.getString("Sottogenere"));
 			
 			prodotti.add(prod);
 		}
@@ -186,7 +182,6 @@ private static DataSource ds;
 			prod.setIva(rs.getInt("Iva"));
 			prod.setData_rilascio(rs.getDate("Data_Rilascio"));
 			prod.setTrailer(rs.getString("Trailer"));
-			prod.setSottogenere(rs.getString("Sottogenere"));
 			
 			prodotti.add(prod);
 		}
@@ -225,7 +220,6 @@ private static DataSource ds;
 			prod.setIva(rs.getInt("Iva"));
 			prod.setData_rilascio(rs.getDate("Data_Rilascio"));
 			prod.setTrailer(rs.getString("Trailer"));
-			prod.setSottogenere(rs.getString("Sottogenere"));
 			
 			prodotti.add(prod);
 		}
@@ -267,7 +261,6 @@ private static DataSource ds;
 			prod.setIva(rs.getInt("Iva"));
 			prod.setData_rilascio(rs.getDate("Data_Rilascio"));
 			prod.setTrailer(rs.getString("Trailer"));
-			prod.setSottogenere(rs.getString("Sottogenere"));
 			
 			prodotti.add(prod);
 		}
@@ -309,11 +302,68 @@ private static DataSource ds;
 			prod.setIva(rs.getInt("Iva"));
 			prod.setData_rilascio(rs.getDate("Data_Rilascio"));
 			prod.setTrailer(rs.getString("Trailer"));
-			prod.setSottogenere(rs.getString("Sottogenere"));
 			
 			prodotti.add(prod);
 		}
 		con.close();
 		return prodotti;
+	}
+	
+	public static Collection<ProdottoBean> filterByGenre(String console, String genere) throws SQLException{
+		Connection con = null;
+		PreparedStatement ps = null;
+		con = ds.getConnection();
+		String retrieve = "SELECT * FROM prodotto WHERE Genere = ? ORDER BY Data_Rilascio DESC";
+		
+		if(!console.equals("null")) {
+			retrieve = "SELECT * FROM prodotto WHERE Genere = ? AND Piattaforma = ? ORDER BY Data_Rilascio DESC";
+			ps = con.prepareStatement(retrieve);
+			ps.setString(1, genere);
+			ps.setString(2, console);
+		}else {
+			ps = con.prepareStatement(retrieve);
+			ps.setString(1, genere);
+		}
+;
+		ResultSet rs = ps.executeQuery();
+		
+		Collection<ProdottoBean> prodotti = new ArrayList<>();
+		while(rs.next()) {
+			ProdottoBean prod = new ProdottoBean();
+			
+			prod.setCod_prodotto(rs.getString("Cod_Prodotto"));
+			prod.setNome(rs.getString("Nome"));
+			prod.setGenere(rs.getString("Genere"));
+			prod.setPiattaforma(rs.getString("Piattaforma"));
+			prod.setDescrizione(rs.getString("Descrizione"));
+			prod.setPrezzo(rs.getDouble("Prezzo"));
+			prod.setSviluppatore(rs.getString("Sviluppatore"));
+			prod.setImgPath(rs.getString("ImgPath"));
+			prod.setQuantità(rs.getInt("Quantita"));
+			prod.setIva(rs.getInt("Iva"));
+			prod.setData_rilascio(rs.getDate("Data_Rilascio"));
+			prod.setTrailer(rs.getString("Trailer"));
+			
+			prodotti.add(prod);
+		}
+		con.close();
+		return prodotti;
+	}
+	
+	public static void boughtOperation(String cod) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		String updatesql = "UPDATE prodotto SET Quantita = Quantita - 1, Vendite = Vendite + 1 WHERE Cod_Prodotto = ?";
+		con = ds.getConnection();
+		con.setAutoCommit(false);
+		ps = con.prepareStatement(updatesql);
+		ps.setString(1, cod);
+		
+		if(ps.executeUpdate() > 0) {
+			con.commit();
+			return;
+		}
+		con.commit();
+		throw new SQLException("Operazioni di incremento vendita non eseguite");
 	}
 }

@@ -7,6 +7,7 @@ window.onload = function() {
 	    if (panel1.style.display === "block") {
 	      panel1.style.display = "none";
 	      panel2.style.display = "none";
+	      document.getElementById("tabellaMetodi").style.display = "none";
 	      document.getElementById("addForm").style.display = "none";
 	    } else {
 	      panel1.style.display = "block";
@@ -17,12 +18,17 @@ window.onload = function() {
 	  let add = document.getElementById("panel1");
 
 	  add.addEventListener("click", function() {
+		let viewTab = document.getElementById("tabellaMetodi");
+	    if (viewTab.style.display === "block"){
+			viewTab.style.display = "none";
+		}
 	    let addForm = document.getElementById("addForm");
 	    if (addForm.style.display === "block") {
 	      addForm.style.display = "none";
 	    } else {
 	      addForm.style.display = "block";
 	    }
+	    
 	  });	
 	  
 	

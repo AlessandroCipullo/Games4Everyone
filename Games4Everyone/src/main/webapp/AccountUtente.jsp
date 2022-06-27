@@ -43,7 +43,6 @@
         <input type="date" id="scadenza" name="scadenza" required><br>
         <input type="submit" id="submit" value="Aggiungi">
 	</form>
-	<a href="Home.jsp"><h2>Torna alla home</h2></a>
 	
 	<% if(metodi != null){ %>
 	
@@ -79,5 +78,6 @@
 			}}
 		%>
 	</table>
+	<a href="Home.jsp"><center><h2>Torna alla home</h2></center></a>
 </body>
 </html>

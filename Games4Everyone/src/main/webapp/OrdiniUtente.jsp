@@ -18,6 +18,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/AccountUtente.css">
+  <link rel="stylesheet" href="./css/OrdiniUtente.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>I miei Ordini</title>
 </head>
@@ -55,6 +56,7 @@
 		<tr>
 			<td colspan="6">Non sono presenti ordini</td>
 		</tr>
+		</table>
 		<%
 			}} else {
 		%>
@@ -79,6 +81,6 @@
 		</tr>
 		<% }}} %>
 	</table>
-	<a href="Home.jsp"><h2>Torna alla home</h2></a>
+	<a href="Home.jsp"><center><h2>Torna alla home</h2></center></a>
 </body>
 </html>

@@ -86,6 +86,10 @@ public class OrdineDAO {
 			ps.setDouble(1, p.prod.getPrezzo());
 			ps.setInt(2, p.prod.getIva());
 			ps.setInt(3, p.quantita);
+			
+			for(int i = 0; i<p.quantita; i++) {
+				ProdottoDAO.boughtOperation(p.prod.cod_prodotto);
+			}
 			// Calcolo con Iva e sconto
 			
 			/*Double prezzoNetto = p.prod.getPrezzo() - p.prod.getSconto() + ((p.prod.getPrezzo() - p.prod.getSconto()) * p.prod.getIva() / 100);

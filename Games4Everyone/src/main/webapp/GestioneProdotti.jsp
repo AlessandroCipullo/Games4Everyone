@@ -73,7 +73,6 @@
 			<th>Piattaforma</th>
 			<th>Sviluppatore</th>
 			<th>Genere</th>
-			<th>Sottogenere</th>
 			<th>Trailer</th>
 			<th>ImgPath</th>
 		</tr>
@@ -88,7 +87,6 @@
 			<td><%=product.getPiattaforma() %></td>
 			<td><%=product.getSviluppatore() %></td>
 			<td><%=product.getGenere() %></td>
-			<td><%=product.getSottogenere() %></td>
 			<td><%=product.getTrailer() %></td>
 			<td><%=product.getImgPath() %></td>
 		</tr>
@@ -121,8 +119,6 @@
 		<label for="genere">Genere:</label><br> 
 		<input name="genere" type="text" maxlength="45" required><br> 
 		
-		<label for="sottogenere">Sottogenere:</label><br> 
-		<input name="sottogenere" type="text" maxlength="45" required><br> 
 		
 		<label for="piattaforma">Piattaforma:</label><br>
 		<input name="piattaforma" type="radio" id="play" value="Playstation">
@@ -146,5 +142,6 @@
 		<input type="submit" value="Aggiungi"><input type="reset" value="Reset">
 
 	</form>
+	<a href="Home.jsp"><center><h2>Torna alla home</h2></center></a>
 </body>
 </html>
