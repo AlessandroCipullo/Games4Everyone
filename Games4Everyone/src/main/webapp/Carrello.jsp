@@ -28,7 +28,7 @@
 		<div class="totale">
 			<p>Totale provvisorio</p><br>
 			<p id="tot"><%=tot %></p>
-			<a href="Acquisto?id=<%=cart.getId_carrello() %>">Procedi all'acquisto</a>
+			<a href="SceltaPagamento.jsp">Procedi all'acquisto</a>
 		</div>
 		
         <p class="carrellotag">Il tuo Carrello</p>

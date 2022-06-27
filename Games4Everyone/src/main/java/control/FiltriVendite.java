@@ -20,6 +20,8 @@ public class FiltriVendite extends HttpServlet {
         super();
     }
 
+    // Crea dei filtri definiti in ProdottoDAO in base alla console correntemente selezionata dall'utente
+    // Se nessuna console è selezionata, il filtro viene applicato su tutti i prodotti del catalogo
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String filtro = request.getParameter("filtro");
@@ -30,6 +32,9 @@ public class FiltriVendite extends HttpServlet {
 				}
 				if(filtro.equalsIgnoreCase("data")) {
 					request.setAttribute("prodotti", ProdottoDAO.orderByReleaseDate(console));
+				}
+				if(filtro.equalsIgnoreCase("preorder")) {
+					request.setAttribute("prodotti", ProdottoDAO.orderByPreorder(console));
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();

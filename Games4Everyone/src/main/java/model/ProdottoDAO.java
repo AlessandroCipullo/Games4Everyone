@@ -4,12 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
 
 public class ProdottoDAO {
 private static DataSource ds;
@@ -235,16 +237,60 @@ private static DataSource ds;
 		Connection con = null;
 		PreparedStatement ps = null;
 		con = ds.getConnection();
-		String retrieve = "SELECT * FROM prodotto ORDER BY Data_Rilascio DESC";
+		String retrieve = "SELECT * FROM prodotto WHERE Data_Rilascio < ? ORDER BY Data_Rilascio DESC";
 		
 		if(!console.equals("null")) {
-			retrieve = "SELECT * FROM prodotto WHERE Piattaforma = ? ORDER BY Data_Rilascio DESC";
+			retrieve = "SELECT * FROM prodotto WHERE Data_Rilascio < ? AND Piattaforma = ? ORDER BY Data_Rilascio DESC";
 			ps = con.prepareStatement(retrieve);
-			ps.setString(1, console);
+			ps.setDate(1, java.sql.Date.valueOf(LocalDate.now()));
+			ps.setString(2, console);
 		}else {
 			ps = con.prepareStatement(retrieve);
+			ps.setDate(1, java.sql.Date.valueOf(LocalDate.now()));
 		}
 		
+		ResultSet rs = ps.executeQuery();
+		
+		Collection<ProdottoBean> prodotti = new ArrayList<>();
+		while(rs.next()) {
+			ProdottoBean prod = new ProdottoBean();
+			
+			prod.setCod_prodotto(rs.getString("Cod_Prodotto"));
+			prod.setNome(rs.getString("Nome"));
+			prod.setGenere(rs.getString("Genere"));
+			prod.setPiattaforma(rs.getString("Piattaforma"));
+			prod.setDescrizione(rs.getString("Descrizione"));
+			prod.setPrezzo(rs.getDouble("Prezzo"));
+			prod.setSviluppatore(rs.getString("Sviluppatore"));
+			prod.setImgPath(rs.getString("ImgPath"));
+			prod.setQuantità(rs.getInt("Quantita"));
+			prod.setIva(rs.getInt("Iva"));
+			prod.setData_rilascio(rs.getDate("Data_Rilascio"));
+			prod.setTrailer(rs.getString("Trailer"));
+			prod.setSottogenere(rs.getString("Sottogenere"));
+			
+			prodotti.add(prod);
+		}
+		con.close();
+		return prodotti;
+	}
+	
+	public static Collection<ProdottoBean> orderByPreorder(String console) throws SQLException{
+		Connection con = null;
+		PreparedStatement ps = null;
+		con = ds.getConnection();
+		String retrieve = "SELECT * FROM prodotto WHERE Data_Rilascio > ? ORDER BY Data_Rilascio DESC";
+		
+		if(!console.equals("null")) {
+			retrieve = "SELECT * FROM prodotto WHERE Data_Rilascio > ? AND Piattaforma = ? ORDER BY Data_Rilascio DESC";
+			ps = con.prepareStatement(retrieve);
+			ps.setDate(1, java.sql.Date.valueOf(LocalDate.now()));
+			ps.setString(2, console);
+		}else {
+			ps = con.prepareStatement(retrieve);
+			ps.setDate(1, java.sql.Date.valueOf(LocalDate.now()));
+		}
+;
 		ResultSet rs = ps.executeQuery();
 		
 		Collection<ProdottoBean> prodotti = new ArrayList<>();

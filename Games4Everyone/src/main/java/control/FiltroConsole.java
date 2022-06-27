@@ -20,6 +20,9 @@ public class FiltroConsole extends HttpServlet {
         super();
     }
 
+    // Genere un sottocatalogo con prodotti appartenenti alla piattaforma selezionata nella home
+    // Setta l'attributo console per permettere ai filtri delle vendite di operare sui sottocataloghi delle singole piattaforme
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setAttribute("prodotti", ProdottoDAO.filterByConsole(request.getParameter("console").toString()));

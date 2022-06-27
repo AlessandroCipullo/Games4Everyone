@@ -19,7 +19,9 @@ public class DettaglioProdotto extends HttpServlet {
     public DettaglioProdotto() {
         super();
     }
-
+    
+    // Redirecta alla pagina del prodotto
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			request.setAttribute("prodotto", ProdottoDAO.retrievebyCodice((String) request.getParameter("id")));

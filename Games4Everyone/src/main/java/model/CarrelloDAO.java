@@ -143,6 +143,23 @@ private static DataSource ds;
 		con.close();
 		throw new SQLException("Voce non eliminata dal carrello");
 	}
+	
+	public static void eraseCarrello(String id_carrello) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		String delete = "DELETE FROM carrello WHERE Id_Carrello = ?";
+		con = ds.getConnection();
+		ps = con.prepareStatement(delete);
+		ps.setString(1, id_carrello);
+		
+		if(ps.executeUpdate() > 0) {
+			con.close();
+			return;
+		}
+		con.close();
+		throw new SQLException("Prodotti non eliminati dal carrello!");
+	}
+	
 	public static CarrelloBean retrieveByCodice(String id_carrello) throws SQLException {
 		CarrelloBean cart = new CarrelloBean();
 		Connection con = null;

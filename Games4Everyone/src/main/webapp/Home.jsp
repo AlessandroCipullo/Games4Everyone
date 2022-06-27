@@ -22,7 +22,7 @@
         <a href="FiltriVendite?filtro=vendite&console=<%=console %>" style="text-decoration:none;"><p class="filtro1">I più venduti</p></a>
         <a href="FiltriVendite?filtro=data&console=<%=console %>" style="text-decoration:none;"><p class="filtro2">Nuove Uscite</p></a>
         <p class="filtro2" style="text-decoration:none;">Nuove Offerte</p>
-        <p class="filtro3" style="text-decoration:none;">Top Preordini</p>
+        <a href="FiltriVendite?filtro=preorder&console=<%=console %>" class="filtro3" style="text-decoration:none;">Prossime Uscite</a>
       </div>
       <div class="schede">
       <%

@@ -22,6 +22,8 @@ public class Carrello extends HttpServlet {
         super();
     }
 
+    // Aggiunge, rimuove o setta la quantità di un determinato prodotto all'interno di un carrello loggato o di un carello temporaneo
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		String cod = request.getParameter("cod");

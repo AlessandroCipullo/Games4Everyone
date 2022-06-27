@@ -18,6 +18,8 @@ public class Login extends HttpServlet {
         super();
     }
 
+    // Al momento del login, se l'utente non possiede già un carrello, i prodotti che ha inserito mentre non era loggato
+    // diventeranno parte del suo carrello.
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
