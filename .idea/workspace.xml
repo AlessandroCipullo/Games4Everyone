@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aed93b05-ccc6-48f5-9bce-2850bf1c1508" name="Changes" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Games4Everyone/src/main/webapp/Header.jsp&#10;#&#9;Games4Everyone/src/main/webapp/css/Header.css">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="aed93b05-ccc6-48f5-9bce-2850bf1c1508" name="Changes" comment="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Games4Everyone/src/main/webapp/Header.jsp&#10;#&#9;Games4Everyone/src/main/webapp/css/Header.css" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,6 +57,7 @@
       <workItem from="1652027715432" duration="301000" />
       <workItem from="1652028037273" duration="130000" />
       <workItem from="1653309868422" duration="577000" />
+      <workItem from="1656369051629" duration="303000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1651586766887</created>
@@ -137,7 +136,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653310121147</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Games4Everyone/src/main/webapp/Header.jsp&#10;#&#9;Games4Everyone/src/main/webapp/css/Header.css">
+      <created>1656369236656</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1656369236656</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;Games4Everyone/src/main/webapp/Header.jsp&#10;#&#9;Games4Everyone/src/main/webapp/css/Header.css">
+      <created>1656369352424</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1656369352424</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,7 +161,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
